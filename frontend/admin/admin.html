@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Attendance Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Admin Attendance Panel</h1>
+
+  <div class="form-section">
+  <label>Department:</label>
+<input type="text" id="department" placeholder="CSE(AI-ML)">
+
+<label>Year:</label>
+<input type="text" id="year" placeholder="III">
+
+<label>Month:</label>
+<select id="month">
+  <option value="">-- Select Month --</option>
+  <option value="1">January</option>
+  <option value="2">February</option>
+  <option value="3">March</option>
+  <option value="4">April</option>
+  <option value="5">May</option>
+  <option value="6">June</option>
+  <option value="7">July</option>
+  <option value="8">August</option>
+  <option value="9">September</option>
+  <option value="10">October</option>
+  <option value="11">November</option>
+  <option value="12">December</option>
+</select>
+
+<button onclick="loadStudents()">Load Students</button>
+
+
+  <label>Subject:</label>
+  <select id="subjectDropdown">
+    <option value="">-- Select Subject --</option>
+  </select>
+
+  <button onclick="loadStudents()">Load Students</button>
+</div>
+
+
+  <div id="attendance-section" style="display:none;">
+    <table id="attendanceTable">
+      <thead id="tableHead"></thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <button onclick="submitAttendance()">Submit Attendance</button>
+    <button onclick="downloadExcel()">Download Excel Sheet</button>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

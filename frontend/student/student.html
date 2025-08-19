@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSE(AI-ML) Student Attendance Report</title>
+  <link rel="stylesheet" href="student.css">
+</head>
+<body>
+  <h1>CSE(AI-ML) Student Attendance Report</h1>
+
+  <div class="form-section">
+    <input type="text" id="name" placeholder="Enter your name">
+    <input type="text" id="rollNumber" placeholder="Enter your roll number">
+    <input type="text" id="department" placeholder="Department (e.g., CSE(AI-ML))">
+    <input type="text" id="year" placeholder="Year (e.g., III)">
+    <input type="text" id="month" placeholder="Month number (e.g., 07)">
+    <button onclick="showAttendance()">Show Attendance</button>
+  </div>
+
+  <div id="student-attendance-section" style="display:none;">
+    <table id="studentAttendanceTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Subject</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="studentAttendanceBody"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><b>Overall Attendance</b></td>
+          <td id="attendancePercent">0%</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <script src="student.js"></script>
+</body>
+</html>

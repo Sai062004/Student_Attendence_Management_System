@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
+
+  /* Background image */
+  background: url('../lendi-institute.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  /* Text color default */
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay for better readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* dark overlay */
+  z-index: -1;
+}
+
+h1 {
+  text-align: center;
+  color: #fff; /* make heading visible */
+}
+
+.form-section {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-section input {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Table Styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.9); /* semi-transparent */
+  color: #000; /* readable text */
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+thead {
+  background-color: rgba(238, 238, 238, 0.9);
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #218838;
+}

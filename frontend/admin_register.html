@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register New Admin</title>
+
+  <style>
+    input, button {
+      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 300px;
+    }
+    button {
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #statusMessage {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Register New Admin</h2>
+  
+  <input type="text" id="adminName" placeholder="Name">
+  <input type="email" id="adminEmail" placeholder="Email">
+  <input type="password" id="adminPassword" placeholder="Password">
+  <input type="text" id="adminDept" placeholder="Department">
+  <input type="text" id="adminYear" placeholder="Year">
+  
+  <button onclick="addAdmin()">Add Admin</button>
+  <div id="statusMessage"></div>
+
+  <script>
+    async function addAdmin() {
+      const name = document.getElementById("adminName").value;
+      const email = document.getElementById("adminEmail").value;
+      const password = document.getElementById("adminPassword").value;
+      const department = document.getElementById("adminDept").value;
+      const year = document.getElementById("adminYear").value;
+      const statusMessage = document.getElementById("statusMessage");
+
+      if (!name || !email || !password || !department || !year) {
+        statusMessage.style.color = "red";
+        statusMessage.textContent = "Please fill all fields.";
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:5000/api/admin/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password, department, year })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          statusMessage.style.color = "green";
+          statusMessage.textContent = data.message || "Admin registered successfully!";
+          // Clear form
+          document.getElementById("adminName").value = "";
+          document.getElementById("adminEmail").value = "";
+          document.getElementById("adminPassword").value = "";
+          document.getElementById("adminDept").value = "";
+          document.getElementById("adminYear").value = "";
+        } else {
+          statusMessage.style.color = "red";
+          statusMessage.textContent = data.error || "Failed to register admin.";
+        }
+      } catch (err) {
+        statusMessage.style.color = "red";
+        statusMessage.textContent = "Error connecting to server.";
+      }
+    }
+  </script>
+</body>
+</html>
